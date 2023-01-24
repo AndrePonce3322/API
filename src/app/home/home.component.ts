@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ServiciosOutPutService } from '../servicios-out-put.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +8,11 @@ import { ServiciosOutPutService } from '../servicios-out-put.service';
 })
 export class HomeComponent implements OnInit {
 
-  mostrar:string[] = [];
+  datos:string[] = [];
 
-  constructor(private recibir: ServiciosOutPutService){}
+  constructor(private readonly resolverData: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.recibir.enviar.subscribe(data=>{
-      console.log('data recibida', data);
-      this.mostrar.push(data);
-    })
+    this.datos = this.resolverData.snapshot.data['TodaLaData'];
   }
-
 }
