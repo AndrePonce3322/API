@@ -1,5 +1,3 @@
-<pre>{{resolverData}}</pre>
-
 <div class="contenedor_form_entero">
     <form (ngSubmit)="enviar()" [formGroup]="nameGroup">
         <div class="contenedor">
@@ -10,7 +8,7 @@
             <div class="ciudad">
                 <label for="ciudad">Ingresa tu ciudad</label>
                 <select formControlName="ciudad">
-                    <option *ngFor="let cadaCiudad of ciudades" value="{{cadaCiudad}}">{{cadaCiudad}}</option>
+                    <option *ngFor="let cadaCiudad of resolverData" value="{{cadaCiudad}}">{{cadaCiudad}}</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-success col-2 mt-2" [disabled]="nameGroup.invalid">Send</button>

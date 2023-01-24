@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,10 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   datos:string[] = [];
+  nameLogin!:string;
 
   constructor(private readonly resolverData: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.datos = this.resolverData.snapshot.data['TodaLaData'];
+    this.datos = this.resolverData.snapshot.data['DataResolver'];
+
+    this.resolverData.queryParams.subscribe(
+      (parametros: Params)=>{
+        this.nameLogin = parametros['name'];
+      }
+    )
   }
 }
