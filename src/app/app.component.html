@@ -1,12 +1,19 @@
-<body>
+<body (mouseenter)="Move(body, puntero)" #body>
+  <div class="puntero" #puntero></div>
   <style>
     body{
       min-height: 100vh;
       height: 100%;
       width: 100%;
+      background-image: url('https://www.xtrafondos.com/wallpapers/guila-con-bandera-de-estados-unidos-11362.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
     }
   </style>
   <app-navbar></app-navbar>
+  
   <router-outlet></router-outlet>
 
 </body>
