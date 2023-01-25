@@ -15,7 +15,7 @@ export class LoginGuardGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      return (this.recibir.enviar.pipe(first()),this.navigate.navigate(['home']));
+      return (this.recibir.enviar.pipe(first()));
     }
 
 }
