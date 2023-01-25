@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
 
   // Funciones
-
   Move(body: HTMLBodyElement, puntero: HTMLDivElement) {
     body.addEventListener('mousemove', (e) => {
       let posicionX = e.pageX - 4;
@@ -17,12 +16,8 @@ export class AppComponent implements OnInit {
       puntero.style.left = `${posicionX}px`;
 
     });
-
-
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
 }

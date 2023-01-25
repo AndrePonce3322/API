@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Forms
-import { NavbarComponent } from './navbar/navbar.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 // Normal components
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
