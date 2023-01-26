@@ -1,8 +1,11 @@
 .conteiner_central{
     width: 100%;
 }
+.conteiner_central input{
+    z-index: 100;
+}
 .contacts_conteiner{
-    width: 50%;
+    width: 95%;
 }
 .buscadores{
     display: flex;
@@ -30,14 +33,26 @@
     cursor: pointer;
 }
 .contacts_conteiner ul li:hover{
-    transform: scale(1.01);
+    transform: scale(1.002);  
 }
 .contacts_conteiner ul li .buttons button{
     margin: 0px 1px 0px 1px;
     transform: scale(0.9);
 }
 .active{
-    background: var(--bs-primary);
+    border-radius: 5px !important;
+    background: var(--bs-light);
+    color: black;
     transform: scale(1.01);
-    display: none !important;
+    transition: 0.1s;
+    animation: animacion 1s alternate infinite;
+    border: none !important;
+}
+@keyframes animacion{
+    0%{
+        box-shadow: 0px 0px 20px var(--bs-red);
+    }
+    100%{
+        box-shadow: 0px 0px 1px white;
+    }
 }

@@ -14,7 +14,7 @@
             </div>
         </div>
         <ul>
-            <li *ngFor="let cadaContact of (contacts | filtrador:buscador)" (click)="ContactSelect(cadaContact)" [ngClass]="{'active': contactSeleccion == cadaContact}">
+            <li *ngFor="let cadaContact of (contacts | filtrador:buscador)" (click)="ContactSelect(cadaContact)" [ngClass]="{'active': cadaContact == contactSeleccion}">
                 {{cadaContact | titlecase}}
                 <div class="buttons">
                     <button class="btn btn-success" (click)="Update(cadaContact)"><i class="bi bi-cloud-arrow-up-fill"></i> Update</button>

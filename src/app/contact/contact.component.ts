@@ -23,7 +23,7 @@ export class contactComponent {
 
     contactSeleccion!:string;
     ContactSelect(seleccion:string){
-        this.contactSeleccion = seleccion;
+        this.contactSeleccion=seleccion;
     }
     Update(valor: string){
         alert(`Updating ${valor}...`);
