@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-	nameLogin!: string;
+	cityLogin!: string;
 	results!:string;
 	fecha!:string;
 
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
 	ngOnInit(): void {
 		this.resolverData.queryParams.subscribe(
 			(parametros: Params) => {
-				this.nameLogin = parametros['name'];
+				this.cityLogin = parametros['city'];
 			}
 		)
 		this.Time();

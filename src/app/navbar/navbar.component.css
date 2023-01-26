@@ -18,6 +18,9 @@
 .navbar:hover{
     width: 250px;
 }
+.navbar:hover > footer{
+    color: gray;
+}
 .navbar ul{
     width: 250px;
     padding: 1px;
@@ -61,4 +64,13 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
+}
+footer{
+    position: absolute;
+    transition: 0.2s;
+    bottom: 10px;
+    left: 10px;
+    color: var(--bs-gray);
+    width: 250px;
+    color: white;
 }

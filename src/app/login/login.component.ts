@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   mensaje = false;  // Mostrar mensaje de "Data enviada!"
   enviar() {
-    this.navegador.navigate(['home'], { queryParams: { name: this.nameGroup.value.name } });
+    this.navegador.navigate(['home'], { queryParams: { city: this.nameGroup.value.ciudad}});
     this.mensaje = true;
     this.nameGroup.reset();
   }
