@@ -1,5 +1,13 @@
+.contenedor_form_entero{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 form{
-    width: 30%;
+    width: 40%;
 }
 .contenedor{
     padding: 10px;
@@ -21,14 +29,6 @@ form{
 }
 button{
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.contenedor_form_entero{
-    width: 200px;
-    min-height: 90vh;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

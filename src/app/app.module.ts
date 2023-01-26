@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Forms
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 // Normal components
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { contactComponent } from './contact/contact.component';
+import { FiltradorPipe } from './filtrador.pipe';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,14 @@ import { NavbarComponent } from './navbar/navbar.component';
     NavbarComponent,
     ErrorPageComponent,
     LoginComponent,
+    contactComponent,
+    FiltradorPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

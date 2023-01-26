@@ -1,0 +1,26 @@
+<div class="conteiner_central">
+    <h2>Lista de contactos</h2>
+
+    <div class="contacts_conteiner">
+
+        <div class="buscadores">
+            <div class="agregador">
+                <input type="text" class="form-control" placeholder="Agregar Contacto" [(ngModel)]="agregar"
+                    (keydown.enter)="Agregar(agregar)">
+                <button class="btn btn-primary col-4" (click)="Agregar(agregar)">Add city</button>
+            </div>
+            <div class="buscador">
+                <input type="text" [(ngModel)]="buscador" class="form-control" placeholder="Filtrar...">
+            </div>
+        </div>
+        <ul>
+            <li *ngFor="let cadaContact of (contacts | filtrador:buscador)" (click)="ContactSelect(cadaContact)" [ngClass]="{'active': contactSeleccion == cadaContact}">
+                {{cadaContact | titlecase}}
+                <div class="buttons">
+                    <button class="btn btn-success" (click)="Update(cadaContact)"><i class="bi bi-cloud-arrow-up-fill"></i> Update</button>
+                    <button class="btn btn-danger" (click)="Delete(cadaContact)"><i class="bi bi-trash-fill"></i> Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

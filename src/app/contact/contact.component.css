@@ -1,0 +1,43 @@
+.conteiner_central{
+    width: 100%;
+}
+.contacts_conteiner{
+    width: 50%;
+}
+.buscadores{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px 10px 0px;
+}
+.buscadores .agregador, .buscadores .buscador{
+    display: flex;
+    gap: 5px;
+}
+/* Contacts Container */
+.contacts_conteiner ul{
+    padding: 0px;
+}
+.contacts_conteiner ul li{
+    padding: 5px;
+    list-style: none;
+    margin: 10px 0px 10px 0px;
+    border-radius: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.1s;
+    border-bottom: 1px white dashed;
+    cursor: pointer;
+}
+.contacts_conteiner ul li:hover{
+    transform: scale(1.01);
+}
+.contacts_conteiner ul li .buttons button{
+    margin: 0px 1px 0px 1px;
+    transform: scale(0.9);
+}
+.active{
+    background: var(--bs-primary);
+    transform: scale(1.01);
+    display: none !important;
+}

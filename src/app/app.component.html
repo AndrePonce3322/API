@@ -5,21 +5,19 @@
       min-height: 100vh;
       height: 100%;
       width: 100%;
-      background-image: url('https://www.xtrafondos.com/wallpapers/guila-con-bandera-de-estados-unidos-11362.jpg');
+      background-image: url('https://www.xtrafondos.com/wallpapers/planta-suculenta-9677.jpg');
       background-position: center;
+      background-attachment: fixed;
       background-repeat: no-repeat;
       background-size: cover;
       color: white;
     }
-
-    .flex {
-      display: flex;
-      gap: 10px;
-      width: 100%;
+    .margin_rigth{
+      margin-left: 80px;
     }
   </style>
-  <div class="flex">
-    <app-navbar></app-navbar>
+  <app-navbar></app-navbar>
+  <div class="margin_rigth">
     <router-outlet></router-outlet>
   </div>
 </body>
