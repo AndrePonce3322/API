@@ -26,7 +26,7 @@ button{
     align-items: center;
 }
 .contenedor_form_entero{
-    width: 100%;
+    width: 200px;
     min-height: 90vh;
     height: 100%;
     display: flex;
