@@ -1,20 +1,21 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Contacts } from './services/data.service';
 
 @Pipe({
   name: 'filtrador'
 })
 export class FiltradorPipe implements PipeTransform {
 
-  transform(value: string[], args: string): string[]{
+  transform(contacts: Contacts[], args: string): Contacts[]{
 
     if(!args){
-      return value
+      return contacts
     }
 
-    let resultado:string[] = [];
+    let resultado:Contacts[] = [];
 
-    for(const valores of value){
-      if(valores.toLowerCase().indexOf(args.toLowerCase())!=-1){
+    for(const valores of contacts){
+      if(valores.name.toLowerCase().indexOf(args.toLowerCase())!=-1){
         resultado = [...resultado, valores];
       }
     }

@@ -5,24 +5,24 @@
 
         <div class="buscadores">
             <div class="agregador">
-                <input type="text" class="form-control" placeholder="Agregar Contacto" [(ngModel)]="agregar"
+                <input type="text" class="form-control" placeholder="Agregar-Editar" [(ngModel)]="agregar"
                     (keydown.enter)="Agregar(agregar)">
-                <button class="btn btn-primary col-4" (click)="Agregar(agregar)">Add city</button>
+                <button class="btn btn-primary" (click)="Agregar(agregar)"><i class="bi bi-person-fill-add"></i> Agregar</button>
             </div>
             <div class="buscador">
-                <input type="text" [(ngModel)]="buscador" class="form-control" placeholder="Filtrar...">
+                <input type="text" [(ngModel)]="buscador" class="form-control" placeholder="Buscar 👁️‍🗨️">
             </div>
         </div>
+
+        <button class="btn btn-primary mb-2" (click)="RetirarSeleccion()" *ngIf="contactSelectedID"><i class="bi bi-x-circle-fill" ></i> Retirar Seleccion</button>
+
         <ul>
-            <button class="btn btn-primary" (click)="EliminarSeleccion()" *ngIf="contactSeleccion"><i class="bi bi-trash-fill"></i> Eliminar Seleccion</button>
-            
-            <li *ngFor="let cadaContact of (contacts | filtrador:buscador)" (click)="ContactSelect(cadaContact)" [ngClass]="{'active': contactSeleccion == cadaContact}">
-                
-                {{cadaContact | titlecase}}
+            <li *ngFor="let cadaContact of (contacts | filtrador: buscador)" (click)="Seleccionado(cadaContact)" [ngClass]="{'active': cadaContact?._id == contactSelectedID}" >
+                {{cadaContact?.name | titlecase}}
                 <div class="buttons">
-                    <button class="btn btn-success" (click)="Update(cadaContact)"><i class="bi bi-cloud-arrow-up-fill"></i> Update</button>
-                    <button class="btn btn-danger" (click)="Delete(cadaContact)"><i class="bi bi-trash-fill"></i> Delete</button>
-                    
+                    <button class="btn btn-danger" (click)="Delete(cadaContact._id)" *ngIf="cadaContact?._id == contactSelectedID"><i class="bi bi-trash-fill"></i> Eliminar</button>
+                    <button class="btn btn-success" (click)="Update(cadaContact,agregar)"><i class="bi bi-cloud-arrow-up-fill"></i> Editar</button>
+                    <button class="btn btn-primary" (click)="Seleccionado(cadaContact)"><i class="bi bi-cloud-arrow-up-fill"></i> Seleccionar</button>
                 </div>
             </li>
         </ul>

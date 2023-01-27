@@ -14,6 +14,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { contactComponent } from './contact/contact.component';
 import { FiltradorPipe } from './filtrador.pipe';
 
+// Conectar con httpCLient a una API
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +31,7 @@ import { FiltradorPipe } from './filtrador.pipe';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
-import { Component} from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { Contacts, DataService } from "../services/data.service";
 
 @Component({
     selector: 'app-contact',
@@ -6,37 +7,67 @@ import { Component} from "@angular/core";
     styleUrls: ['./contact.component.css']
 })
 
-export class contactComponent {
-    constructor(){}
+export class contactComponent implements OnInit {
 
-    agregar!:string;
-    buscador!:string;
+    // Cosas del input 
+    agregar!: string;
+    buscador!: string;
 
-    contacts:string[] = [
-        'Juan','Carlos','Pedro','Carla','Abigayl','Lisa','Sol angie'
-    ];
+    // Valores del contact, en el Crud
+    contacts: Contacts[] = [];
+    contactSelectedID!: string;
+    nameContacts!: Contacts;
 
-    Agregar(valor: string){
-        this.contacts.push(valor.toLowerCase());
-        this.agregar = ''
+
+    constructor(private readonly dataSVC: DataService) { }
+
+    ngOnInit(): void {
+        this.dataSVC.getContacts().subscribe(
+            res => { this.contacts = [...res] }
+        )
     }
 
-    contactSeleccion!:string;
-
-    EliminarSeleccion(){
-        this.contactSeleccion = '';
+    Agregar(valorInput: string) {
+        this.dataSVC.addNewContact(valorInput).subscribe(
+            res => {
+                this.contacts.push(res);
+            }
+        );
+        this.RetirarSeleccion();
     }
 
-    ContactSelect(seleccion:string){
-        this.contactSeleccion=seleccion;
+    Delete(id: string) {
+        this.RetirarSeleccion();
+        if (confirm('¿Seguro que quieres eliminar?')) {
+            this.dataSVC.deleteContact(id).subscribe(res => {
+                const filter = this.contacts.filter(contactsId => contactsId._id != id);
+                this.contacts = [...filter];
+            })
+        }
     }
-    Update(valor: string){
-        alert(`Updating ${valor}...`);
-    }
-    Delete(valor: string){
-        alert(`Deleting ${valor}...`);
+    Update(nameSeleccionado: Contacts, changes: string): void {
+        const contactos = {
+            name: changes,
+            _id: nameSeleccionado._id
+        }
+
+        this.dataSVC.updateContacts(contactos).subscribe(res => {
+            const filter = this.contacts.filter(valores => valores._id != nameSeleccionado._id);
+            this.contacts = [...filter,contactos];
+            }
+        )
     }
 
+    Seleccionado(cadaContact: Contacts) {
+        // Asignar contact selected al <li> que hagan click de los valores que estan en Contacts?.id
+        this.contactSelectedID = cadaContact?._id;
 
+        this.agregar = cadaContact?.name;
+    }
+
+    RetirarSeleccion(){
+        this.agregar = '';
+        this.contactSelectedID = '';
+    }
 
 }
