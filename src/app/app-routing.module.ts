@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent, resolve: {DataResolver: dataResolver}},
   {path: 'home', loadChildren: ()=> import('./home/home.module').then(m=>m.HomeModule)},
-  {path: 'contact', component: contactComponent},
+  {path: 'contacts', component: contactComponent},
   {path: '**', component: ErrorPageComponent}
 ];
 @NgModule({

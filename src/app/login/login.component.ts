@@ -11,7 +11,8 @@ export class LoginComponent implements OnInit {
 
   nameGroup!: FormGroup;
   resolverData = [];
-  constructor(private readonly builder: FormBuilder, private readonly navegador: Router, private readonly leerResolver: ActivatedRoute) { }
+
+  constructor(private readonly builder: FormBuilder, private readonly navegador: Router, private readonly leerResolver: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.nameGroup = this.Builder();
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit {
 
   mensaje = false;  // Mostrar mensaje de "Data enviada!"
   enviar() {
-    this.navegador.navigate(['home'], { queryParams: { city: this.nameGroup.value.ciudad}});
+    this.navegador.navigate(['contacts'], { queryParams: { name: this.nameGroup.value.name}});
+
     this.mensaje = true;
     this.nameGroup.reset();
   }

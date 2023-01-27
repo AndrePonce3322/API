@@ -32,4 +32,5 @@ export class DataService {
   deleteContact(id: string): Observable<void> {
     return this.http.delete<void>(`${this.API}/${id}`)
   }
+
 }

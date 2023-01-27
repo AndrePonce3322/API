@@ -17,6 +17,8 @@ import { FiltradorPipe } from './filtrador.pipe';
 // Conectar con httpCLient a una API
 import { HttpClientModule } from '@angular/common/http'
 
+// Song
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http'
     ErrorPageComponent,
     LoginComponent,
     contactComponent,
-    FiltradorPipe
+    FiltradorPipe,
   ],
   imports: [
     BrowserModule,

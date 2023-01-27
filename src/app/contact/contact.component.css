@@ -16,33 +16,45 @@
     height: 40px;
 }
 .buscadores button{
-    width: 50%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.buscadores button i{
+    display: flex;
+    align-items: center;
 }
 .buscadores .agregador, .buscadores .buscador{
     display: flex;
     gap: 4px;
 }
+.retirar{
+    transition: 1s;
+    position: absolute;
+    margin-left: -100%;
+}
 /* Contacts Container */
 .contacts_conteiner ul{
+    z-index: 3;
+    transition: 1s;
     padding: 0px;
-    background: rgba(255, 255, 255);
-    color: #000;
+    color: #FFF;
     border-radius: 10px 10px 0px 0px;
 }
 .contacts_conteiner ul li{
     padding: 5px;
+    margin-top: 12px !important;
     list-style: none;
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px black dashed;
+    border-bottom: 1px #FFF dashed;
     align-items: center;
     transition: 0.1s;
     cursor: pointer;
 }
 .contacts_conteiner ul li:hover{
-    transform: scale(1.002);  
-    box-shadow: 0px 0px 10px var(--bs-red);
-    border-bottom: 1px transparent;
+    transform: scale(1.01);  
 }
 .contacts_conteiner ul li .buttons button{
     margin: 0px 1px 0px 1px;
@@ -59,12 +71,15 @@
 }
 @keyframes animacion{
     0%{
-        box-shadow: 0px 0px 1px white;
+        box-shadow: 0px 0px 1px #FFF;
     }
     100%{
         box-shadow: 0px 0px 20px var(--bs-red);
     }
 }
-.displayNone{
-    visibility: hidden;
+.down{
+    margin-top: 55px;
+}
+.left{
+    margin-left: 0%;
 }

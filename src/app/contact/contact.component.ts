@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Params } from "@angular/router";
 import { Contacts, DataService } from "../services/data.service";
 
 @Component({
@@ -17,14 +18,25 @@ export class contactComponent implements OnInit {
     contacts: Contacts[] = [];
     contactSelectedID!: string;
     nameContacts!: Contacts;
+    nombreLogin!:string;
 
+    constructor(private readonly dataSVC: DataService, private readonly nameLogin: ActivatedRoute) { }
 
-    constructor(private readonly dataSVC: DataService) { }
 
     ngOnInit(): void {
         this.dataSVC.getContacts().subscribe(
             res => { this.contacts = [...res] }
         )
+        this.nameLogin.queryParams.subscribe(
+            (queryParametros: Params)=>{
+                this.nombreLogin = queryParametros['name'];
+
+                if(queryParametros['name']==''){
+                    this.nombreLogin = 'Andre';
+                }
+            }
+        )
+
     }
 
     Agregar(valorInput: string) {
@@ -53,8 +65,8 @@ export class contactComponent implements OnInit {
 
         this.dataSVC.updateContacts(contactos).subscribe(res => {
             const filter = this.contacts.filter(valores => valores._id != nameSeleccionado._id);
-            this.contacts = [...filter,contactos];
-            }
+            this.contacts = [...filter, contactos];
+        }
         )
     }
 
@@ -65,9 +77,10 @@ export class contactComponent implements OnInit {
         this.agregar = cadaContact?.name;
     }
 
-    RetirarSeleccion(){
+    RetirarSeleccion() {
         this.agregar = '';
         this.contactSelectedID = '';
     }
+
 
 }

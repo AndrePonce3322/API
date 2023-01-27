@@ -2,16 +2,16 @@
     <form (ngSubmit)="enviar()" [formGroup]="nameGroup">
         <div class="contenedor">
             <div class="nombre">
-                <label for="name">Ingresa tu nombre</label>
-                <input type="text" formControlName="name" placeholder="Example: Andre Ponce">
+                <label for="name">Nombre:</label>
+                <input type="text" formControlName="name" placeholder="Ejemplo: Juan Orlando" class="form-control">
             </div>
             <div class="ciudad">
-                <label for="ciudad">Ingresa tu ciudad</label>
-                <select formControlName="ciudad">
+                <label for="ciudad">Ciudad</label>
+                <select formControlName="ciudad" class="form-select">
                     <option *ngFor="let cadaCiudad of resolverData" value="{{cadaCiudad}}">{{cadaCiudad}}</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-success col-2 mt-2" [disabled]="nameGroup.invalid">Send</button>
+            <button type="submit" class="btn btn-primary col-4 mt-2" style="display: flex; flex-direction: row; gap: 7px;" [disabled]="nameGroup.invalid"><i class="bi bi-send-fill"></i> Enviar</button>
             <div *ngIf="mensaje && nameGroup.pristine" class="alert alert-success mt-2">Data enviada!</div>
         </div>
     </form>

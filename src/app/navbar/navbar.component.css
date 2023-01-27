@@ -74,3 +74,6 @@ footer{
     width: 250px;
     color: white;
 }
+.active{
+    background: rgba(0, 0, 0, 0.205);
+}

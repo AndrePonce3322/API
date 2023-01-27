@@ -1,6 +1,5 @@
 export const enviroment = {
-    production: false,
-    api: 'https://crudcrud.com/api/433ede1aea564121832d02af7f892ff5/contacts'
+    api: 'https://crudcrud.com/api/99e5e7aca72c470994a3e6d978f38bab/contacts'
 }
 
-// https://crudcrud.com/dashboard/433ede1aea564121832d02af7f892ff5
+// https://crudcrud.com/dashboard/99e5e7aca72c470994a3e6d978f38bab
