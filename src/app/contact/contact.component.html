@@ -14,11 +14,15 @@
             </div>
         </div>
         <ul>
-            <li *ngFor="let cadaContact of (contacts | filtrador:buscador)" (click)="ContactSelect(cadaContact)" [ngClass]="{'active': cadaContact == contactSeleccion}">
+            <button class="btn btn-primary" (click)="EliminarSeleccion()" *ngIf="contactSeleccion"><i class="bi bi-trash-fill"></i> Eliminar Seleccion</button>
+            
+            <li *ngFor="let cadaContact of (contacts | filtrador:buscador)" (click)="ContactSelect(cadaContact)" [ngClass]="{'active': contactSeleccion == cadaContact}">
+                
                 {{cadaContact | titlecase}}
                 <div class="buttons">
                     <button class="btn btn-success" (click)="Update(cadaContact)"><i class="bi bi-cloud-arrow-up-fill"></i> Update</button>
                     <button class="btn btn-danger" (click)="Delete(cadaContact)"><i class="bi bi-trash-fill"></i> Delete</button>
+                    
                 </div>
             </li>
         </ul>

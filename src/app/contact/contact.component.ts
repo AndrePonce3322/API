@@ -22,6 +22,11 @@ export class contactComponent {
     }
 
     contactSeleccion!:string;
+
+    EliminarSeleccion(){
+        this.contactSeleccion = '';
+    }
+
     ContactSelect(seleccion:string){
         this.contactSeleccion=seleccion;
     }
@@ -31,6 +36,7 @@ export class contactComponent {
     Delete(valor: string){
         alert(`Deleting ${valor}...`);
     }
+
 
 
 }
